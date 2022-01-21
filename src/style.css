@@ -29,10 +29,31 @@ main {
     align-items: center;
 }
 
+.title {
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 30px;
+    letter-spacing: -0.03em;
+    margin-bottom: -30px;
+
+    color: #2B283A;
+}
+
+.instructions {
+    font-family: 'Inter', sans-serif;
+    font-size: 26px;
+    line-height: 30px;
+    text-align: center;
+    letter-spacing: -0.03em;
+
+    color: #4A4E74;
+}
+
 .dice-container {
     display: grid;
     grid-template: auto auto / repeat(5, 1fr);
     gap: 20px;
+    margin-bottom: 40px;
 }
 
 .die-face {

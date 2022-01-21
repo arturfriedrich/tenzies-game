@@ -8,6 +8,7 @@ export default function App() {
 
     const [dice, setDice] = useState(allNewDice())
     const [tenzies, setTenzies] = useState(false)
+    const [count, setCount] = useState(0)
 
     useEffect(() => {
         const allHeld = dice.every(die => die.isHeld)
@@ -25,7 +26,6 @@ export default function App() {
             id: nanoid()
         }
     }
-
 
     function allNewDice() {
         const newDice = []
@@ -46,6 +46,7 @@ export default function App() {
             setTenzies(false)
             setDice(allNewDice())
         }
+        setCount(count + 1)
     }
 
     function holdDice(id) {
@@ -72,6 +73,7 @@ export default function App() {
             <h1 className="title">Tenzies</h1>
             <p className="instructions">Roll until all dice are the same. Click each die to freeze
                 it at its current value between rolls.</p>
+            <p className="counter">You rolled the dice <span>{count}</span> times</p>
             <div className="dice-container">
                 {diceElements}
             </div>

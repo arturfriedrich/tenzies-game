@@ -45,8 +45,19 @@ main {
     line-height: 30px;
     text-align: center;
     letter-spacing: -0.03em;
+    margin-bottom: 0;
 
     color: #4A4E74;
+}
+
+.counter {
+    margin: 0;
+
+    color: #4A4E74;
+}
+
+.counter > span {
+    color: #0b2434;
 }
 
 .dice-container {

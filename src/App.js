@@ -24,6 +24,10 @@ export default function App() {
         console.log(highScore)
     }, [dice])
 
+    useEffect(() => {
+        localStorage.setItem("highscore", JSON.stringify(highScore))
+    }, [highScore])
+
     function generateNewDie() {
         return {
             value: Math.ceil(Math.random() * 6),
@@ -88,6 +92,10 @@ export default function App() {
             <div className="dice-container">
                 {diceElements}
             </div>
+            {highScore < 9999 && tenzies ?
+                <p className="counter">
+                    Your best score is: {JSON.parse(localStorage.getItem("highscore"))}
+                </p> : <></>}
             <button onClick={rollDice} className="roll-dice">{tenzies ? "New Game" : "Roll"}</button>
         </main>
     )

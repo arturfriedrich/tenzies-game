@@ -9,7 +9,7 @@ export default function App() {
     const [dice, setDice] = useState(allNewDice())
     const [tenzies, setTenzies] = useState(false)
     const [score, setScore] = useState(0)
-    const [highScore, setHighScore] = useState(0)
+    const [highScore, setHighScore] = useState(9999)
 
     useEffect(() => {
         const allHeld = dice.every(die => die.isHeld)
@@ -17,14 +17,11 @@ export default function App() {
         const allSameValue = dice.every(die => die.value === firstValue)
         if (allHeld & allSameValue) {
             setTenzies(true)
-            setScore(0)
-            setHighScore(prevHighScore => {
-                if (score < prevHighScore) {
-                    highScore = score
-                }
-            })
-            console.log(highScore)
+            if (score < highScore) {
+                setHighScore(score)
+            }
         }
+        console.log(highScore)
     }, [dice])
 
     function generateNewDie() {
@@ -51,10 +48,16 @@ export default function App() {
                     generateNewDie()
             }))
         } else {
+            setScore(0)
+            console.log("new game")
             setTenzies(false)
             setDice(allNewDice())
         }
+
         setScore(score + 1)
+        if (tenzies && score != 0) {
+            setScore(1)
+        }
     }
 
     function holdDice(id) {

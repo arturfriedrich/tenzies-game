@@ -92,7 +92,7 @@ export default function App() {
             <div className="dice-container">
                 {diceElements}
             </div>
-            {highScore < 9999 && tenzies ?
+            {highScore < 9999 ?
                 <p className="counter">
                     Your best score is: {JSON.parse(localStorage.getItem("highscore"))}
                 </p> : <></>}

@@ -60,7 +60,7 @@ export default function App() {
 
         setScore(score + 1)
         if (tenzies && score != 0) {
-            setScore(1)
+            setScore(0)
         }
     }
 
@@ -94,7 +94,7 @@ export default function App() {
             </div>
             {highScore < 9999 ?
                 <p className="counter">
-                    Your best score is: {highScore}
+                    Your best score is: {highScore ? JSON.parse(localStorage.getItem("highscore")) : score}
                 </p> : <></>}
             <button onClick={rollDice} className="roll-dice">{tenzies ? "New Game" : "Roll"}</button>
         </main>

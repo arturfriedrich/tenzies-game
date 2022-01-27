@@ -9,7 +9,7 @@ export default function App() {
     const [dice, setDice] = useState(allNewDice())
     const [tenzies, setTenzies] = useState(false)
     const [score, setScore] = useState(0)
-    const [highScore, setHighScore] = useState(9999)
+    const [highScore, setHighScore] = useState(JSON.parse(localStorage.getItem("highscore")))
 
     useEffect(() => {
         const allHeld = dice.every(die => die.isHeld)
@@ -94,7 +94,7 @@ export default function App() {
             </div>
             {highScore < 9999 ?
                 <p className="counter">
-                    Your best score is: {JSON.parse(localStorage.getItem("highscore"))}
+                    Your best score is: {highScore}
                 </p> : <></>}
             <button onClick={rollDice} className="roll-dice">{tenzies ? "New Game" : "Roll"}</button>
         </main>

@@ -9,7 +9,7 @@ export default function App() {
     const [dice, setDice] = useState(allNewDice())
     const [tenzies, setTenzies] = useState(false)
     const [score, setScore] = useState(1)
-    const [highScore, setHighScore] = useState(JSON.parse(localStorage.getItem("highscore")))
+    const [highScore, setHighScore] = useState(JSON.parse(localStorage.getItem("highscore")) == null ? 9999 : JSON.parse(localStorage.getItem("highscore")))
 
     useEffect(() => {
         const allHeld = dice.every(die => die.isHeld)

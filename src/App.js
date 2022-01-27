@@ -92,10 +92,11 @@ export default function App() {
             <div className="dice-container">
                 {diceElements}
             </div>
-            {highScore < 9999 ?
+            {JSON.parse(localStorage.getItem("highscore")) == 9999 ?
+                <></> :
                 <p className="score">
                     Your best score is: {highScore ? JSON.parse(localStorage.getItem("highscore")) : score}
-                </p> : <></>}
+                </p>}
             <button onClick={rollDice} className="roll-dice">{tenzies ? "New Game" : "Roll"}</button>
         </main>
     )

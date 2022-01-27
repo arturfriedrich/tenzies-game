@@ -50,13 +50,12 @@ main {
     color: #4A4E74;
 }
 
-.counter {
+.score {
     margin: 0;
-
     color: #4A4E74;
 }
 
-.counter > span {
+.score > span {
     color: #0b2434;
 }
 
@@ -64,7 +63,6 @@ main {
     display: grid;
     grid-template: auto auto / repeat(5, 1fr);
     gap: 20px;
-    margin-bottom: 40px;
 }
 
 .die-face {

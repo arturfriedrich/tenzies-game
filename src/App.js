@@ -22,7 +22,7 @@ export default function App() {
             }
         }
         console.log(highScore)
-    }, [dice])
+    }, [dice, highScore, score])
 
     useEffect(() => {
         localStorage.setItem("highscore", JSON.stringify(highScore))
@@ -59,7 +59,7 @@ export default function App() {
         }
 
         setScore(score + 1)
-        if (tenzies && score != 0) {
+        if (tenzies && score !== 0) {
             setScore(1)
         }
     }
@@ -88,12 +88,12 @@ export default function App() {
             <h1 className="title">Tenzies</h1>
             <p className="instructions">Roll until all dice are the same. Click each die to freeze
                 it at its current value between rolls.</p>
-            <p className="counter">You rolled the dice <span>{score}</span> times</p>
+            <p className="score">You rolled the dice <span>{score}</span> times</p>
             <div className="dice-container">
                 {diceElements}
             </div>
             {highScore < 9999 ?
-                <p className="counter">
+                <p className="score">
                     Your best score is: {highScore ? JSON.parse(localStorage.getItem("highscore")) : score}
                 </p> : <></>}
             <button onClick={rollDice} className="roll-dice">{tenzies ? "New Game" : "Roll"}</button>

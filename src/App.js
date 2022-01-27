@@ -21,6 +21,7 @@ export default function App() {
                 setHighScore(score)
             }
         }
+        console.log(highScore)
     }, [dice, highScore, score])
 
     useEffect(() => {
@@ -52,6 +53,7 @@ export default function App() {
             }))
         } else {
             setScore(0)
+            console.log("new game")
             setTenzies(false)
             setDice(allNewDice())
         }

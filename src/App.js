@@ -8,7 +8,7 @@ export default function App() {
 
     const [dice, setDice] = useState(allNewDice())
     const [tenzies, setTenzies] = useState(false)
-    const [score, setScore] = useState(0)
+    const [score, setScore] = useState(1)
     const [highScore, setHighScore] = useState(JSON.parse(localStorage.getItem("highscore")))
 
     useEffect(() => {
@@ -60,7 +60,7 @@ export default function App() {
 
         setScore(score + 1)
         if (tenzies && score != 0) {
-            setScore(0)
+            setScore(1)
         }
     }
 

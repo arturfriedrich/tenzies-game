@@ -100,3 +100,29 @@ main {
 .roll-dice:active {
     box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
 }
+
+
+@media only screen and (max-width: 500px) {
+    main {
+      width: 360px;
+    }
+
+    .title {
+        font-size: 30px;
+    }
+
+    .instructions {
+        font-size: 16px;
+        max-width: 80%;
+    }
+
+    .dice-container {
+        grid-template: auto auto / repeat(5, 1fr);
+        gap: 20px;
+    }
+
+    .die-face {
+        height: 45px;
+        width: 45px;
+    }
+  }
